@@ -1,5 +1,5 @@
 {
-  "name": "auth-node-backend",
+  "name": "social-network-server",
   "version": "1.0.0",
   "description": "Simple Auth Server using JWT",
   "main": "index.js",
