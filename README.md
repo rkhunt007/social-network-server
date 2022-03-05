@@ -1,12 +1,4 @@
-# node-auth-backend
-A simple backend server for auth using JWT
+# social-network-server
+Backend server for simplest version of facebook
 
-Boilerplate for User auth
-
-Contains api for login, register and validate user.
-
-Steps:
-- Clone the repo
-- run the commands
-  - `npm i`
-  -  `npm run server`
+Deployed at: https://social-network-server-react.herokuapp.com/
