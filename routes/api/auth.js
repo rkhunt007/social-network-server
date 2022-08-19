@@ -60,6 +60,7 @@ router.post(
         res.json({ token });
       });
     } catch (error) {
+      console.log('::: Login Error :::', error);
       res.status(500).send("Server Error");
     }
   }
