@@ -13,7 +13,7 @@ const connectDB = async () => {
     console.log("****************************");
     console.log("*    Starting Server");
     console.log(`*    Port: ${process.env.PORT || 5000}`);
-    console.log(`*    NODE_ENV: ${process.env.NODE_ENV}`);
+    console.log(`*    NODE_ENV: ${process.env.NODE_ENV || 'Development'}`);
     console.log(`*    Database: MongoDB`);
     console.log(`*    DB Connection: OK\n****************************\n`);
   } catch (e) {

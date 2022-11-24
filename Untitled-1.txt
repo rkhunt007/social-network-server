@@ -1,0 +1,14 @@
+Root (Public Route) /login
+
+/Login
+/Register
+
+
+/Dashboard
+Header bar - home, send message-2, received message-2, user image, dropdown with profile & logout option.
+Friends List - Empty if none 
+Friends Requests 
+Suggested Friends 
+
+/Profile
+Picture, City, State, Country, DOB

@@ -18,7 +18,7 @@ app.use(helmet());
 // Init middleware
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => res.send(`Auth Server Running ${process.env.NODE_ENV}`));
+app.get('/', (req, res) => res.send(`Auth Server Running ${process.env.PORT || 5000}`));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/profile', require('./routes/api/profile'));
