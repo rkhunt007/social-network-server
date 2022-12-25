@@ -8,6 +8,7 @@ const trimRequest = require("trim-request");
 const User = require("../../models/User");
 const { sendRegistrationEmailMessage } = require("../../middleware/sendRegistrationEmail");
 const auth = require("../../middleware/auth");
+const UserProfile = require("../../models/UserProfile");
 const jwtSecret = process.env.jwtSecret;
 
 // @route   POST api/users/register
@@ -78,7 +79,11 @@ router.post(
  */
 router.get("/", auth, async (req, res) => {
   try {
-    const users = await User.find({ _id: { $ne: req.user.id } });
+
+    // await User.deleteMany( {  "email" : { $ne: "rahul@gmail.com" } } );
+    // await UserProfile.deleteMany( {  } );
+    // const users = await User.find({ _id: { $ne: req.user.id } })
+    const users = await UserProfile.find({ user: { $ne: req.user.id } }).populate("user", ["name", "email", "avatar", "image"]);
     res.json(users);
   } catch (error) {
     res.status(500).send({

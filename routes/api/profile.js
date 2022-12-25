@@ -43,16 +43,18 @@ const upload = multer({
  */
 router.post("/image", upload.single("profilePic"), trimRequest.all, auth, async (req, res) => {
   try {
-    console.log("/image");
     // check if email exists
     let user = await User.findById(req.user.id);
     if (!user) {
       return res.status(400).json({ errors: [{ msg: "User Not Found" }] });
     }
 
+    let path = req.file?.path || req.body.path;
+
     const result = await user.updateOne({
-      image: req.file.path,
+      image: path
     });
+
     user = await User.findById(req.user.id);
     res.json(user);
   } catch (error) {
