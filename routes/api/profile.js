@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
     cb(null, "./public/profile/");
   },
   filename: function (req, file, cb) {
-    cb(null, new Date().toISOString() + file.originalname);
+    cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
   },
 });
 
@@ -43,6 +43,7 @@ const upload = multer({
  */
 router.post("/image", upload.single("profilePic"), trimRequest.all, auth, async (req, res) => {
   try {
+    console.log("/image");
     // check if email exists
     let user = await User.findById(req.user.id);
     if (!user) {
